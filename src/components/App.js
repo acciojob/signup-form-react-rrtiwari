@@ -4,7 +4,7 @@ import React, { useState } from "react";
 function App() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
-  const [gender, setGender] = useState("male");
+  const [gender, setGender] = useState("Male");
   const [phoneNumber, setPhoneNumber] = useState("");
   const [password, setPassword] = useState("");
   const [message, setMessage] = useState("");
@@ -28,7 +28,7 @@ function App() {
       return;
     }
 
-    if (!(gender === "male" || gender === "female" || gender === "other")) {
+    if (!(gender === "Male" || gender === "Female" || gender === "Other")) {
       setMessage("Please identify as male, female or others.");
       return;
     }
@@ -50,7 +50,6 @@ function App() {
   return (
     <div id="main" style={{ padding: "20px" }}>
       <form onSubmit={handleSubmit}>
-
         <input
           data-testid="name"
           placeholder="Name"
@@ -70,9 +69,9 @@ function App() {
           value={gender}
           onChange={(e) => setGender(e.target.value)}
         >
-          <option value="male">male</option>
-          <option value="female">female</option>
-          <option value="other">other</option>
+          <option value="Male">Male</option>
+          <option value="Female">Female</option>
+          <option value="Other">Other</option>
         </select><br/><br/>
 
         <input
@@ -95,10 +94,11 @@ function App() {
         </button>
       </form>
 
-      {message && <p>{message}</p>}
+      {message && <span>{message}</span>}
     </div>
   );
 }
 
 export default App;
+
 
