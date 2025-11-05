@@ -1,11 +1,104 @@
-import React, {Component, useState} from "react";
 import '../styles/App.css';
+import React, { useState } from "react";
 
-const App = () => {
+function App() {
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [gender, setGender] = useState("male");
+  const [phoneNumber, setPhoneNumber] = useState("");
+  const [password, setPassword] = useState("");
+  const [message, setMessage] = useState("");
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    setMessage("");
+
+    if (!name || !email || !phoneNumber || !password) {
+      setMessage("All fields are mandatory.");
+      return;
+    }
+
+    if (!/^[a-zA-Z0-9 ]+$/.test(name)) {
+      setMessage("Name is not alphanumeric.");
+      return;
+    }
+
+    if (!email.includes("@")) {
+      setMessage("Email must contain @.");
+      return;
+    }
+
+    if (!(gender === "male" || gender === "female" || gender === "other")) {
+      setMessage("Please identify as male, female or others.");
+      return;
+    }
+
+    if (!/^[0-9]+$/.test(phoneNumber)) {
+      setMessage("Phone Number must contain only numbers.");
+      return;
+    }
+
+    if (password.length < 6) {
+      setMessage("Password must contain atleast 6 letters");
+      return;
+    }
+
+    const username = email.substring(0, email.indexOf("@"));
+    setMessage(`Hello ${username}`);
+  };
+
   return (
-    <div id="main"></div>
-  )
+    <div id="main" style={{ padding: "20px" }}>
+      <form onSubmit={handleSubmit}>
+
+        <input
+          data-testid="name"
+          placeholder="Name"
+          value={name}
+          onChange={(e) => setName(e.target.value)}
+        /><br/><br/>
+
+        <input
+          data-testid="email"
+          placeholder="Email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+        /><br/><br/>
+
+        <select
+          data-testid="gender"
+          value={gender}
+          onChange={(e) => setGender(e.target.value)}
+        >
+          <option value="male">male</option>
+          <option value="female">female</option>
+          <option value="other">other</option>
+        </select><br/><br/>
+
+        <input
+          data-testid="phoneNumber"
+          placeholder="Phone Number"
+          value={phoneNumber}
+          onChange={(e) => setPhoneNumber(e.target.value)}
+        /><br/><br/>
+
+        <input
+          data-testid="password"
+          type="password"
+          placeholder="Password"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+        /><br/><br/>
+
+        <button data-testid="submit" type="submit">
+          Submit
+        </button>
+      </form>
+
+      {message && <p>{message}</p>}
+    </div>
+  );
 }
 
-
 export default App;
+
