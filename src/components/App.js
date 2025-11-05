@@ -24,7 +24,7 @@ function App() {
     }
 
     if (!email.includes("@")) {
-      setMessage("Email must contain @");
+      setMessage("email must contain @");
       return;
     }
 
@@ -49,6 +49,7 @@ function App() {
 
   return (
     <div id="main" style={{ padding: "20px" }}>
+     <h2>Form</h2>
       <form onSubmit={handleSubmit}>
         <input
           data-testid="name"
