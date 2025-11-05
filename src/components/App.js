@@ -68,7 +68,7 @@ function App() {
         <select data-testid="gender" value={gender} onChange={(e) => setGender(e.target.value)}>
         <option value="Male">Male</option>
         <option value="Female">Female</option>
-        <option value="Other">other</option>
+        <option value="Other">Other</option>
         </select>
 
 
