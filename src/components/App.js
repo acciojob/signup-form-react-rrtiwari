@@ -65,16 +65,12 @@ function App() {
           onChange={(e) => setEmail(e.target.value)}
         /><br/><br/>
 
-        <select
-         data-testid="gender"
-  value={gender}
-  onChange={(e) => setGender(e.target.value)}
->
-  <option value="male">male</option>
-  <option value="female">female</option>
-  <option value="other">other</option>
-</select>
-<br/><br/>
+        <select data-testid="gender" value={gender} onChange={(e) => setGender(e.target.value)}>
+        <option value="Male">Male</option>
+        <option value="Female">Female</option>
+        <option value="Other">other</option>
+        </select>
+
 
         <input
           data-testid="phoneNumber"
