@@ -14,27 +14,27 @@ function App() {
     setMessage("");
 
     if (!name || !email || !phoneNumber || !password) {
-      setMessage("All fields are mandatory.");
+      setMessage("All fields are mandatory");
       return;
     }
 
     if (!/^[a-zA-Z0-9 ]+$/.test(name)) {
-      setMessage("Name is not alphanumeric.");
+      setMessage("Name is not alphanumeric");
       return;
     }
 
     if (!email.includes("@")) {
-      setMessage("Email must contain @.");
+      setMessage("Email must contain @");
       return;
     }
 
     if (!(gender === "Male" || gender === "Female" || gender === "Other")) {
-      setMessage("Please identify as male, female or others.");
+      setMessage("Please identify as male, female or others");
       return;
     }
 
     if (!/^[0-9]+$/.test(phoneNumber)) {
-      setMessage("Phone Number must contain only numbers.");
+      setMessage("Phone Number must contain only numbers");
       return;
     }
 
