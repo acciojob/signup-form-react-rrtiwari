@@ -28,7 +28,7 @@ function App() {
       return;
     }
 
-    if (!(gender === "Male" || gender === "Female" || gender === "Other")) {
+    if (!(gender === "Male" || gender === "Female" || gender === "other")) {
       setMessage("Please identify as male, female or others");
       return;
     }
@@ -68,7 +68,7 @@ function App() {
         <select data-testid="gender" value={gender} onChange={(e) => setGender(e.target.value)}>
         <option value="Male">Male</option>
         <option value="Female">Female</option>
-        <option value="Other">Other</option>
+        <option value="other">other</option>
         </select>
 
 
